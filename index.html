@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Floricultura São Matheus — Flores, Arranjos e Buquês | Bragança Paulista & Extrema</title>
+<meta name="description" content="Floricultura São Matheus: arranjos, buquês, flores do dia e peças para eventos. Entrega em Bragança Paulista/SP e Extrema/MG. Peça pelo site." />
+<style>
+  :root{
+    --rosa:#e8739a;
+    --rosa-escuro:#c24b76;
+    --rosa-claro:#fce8ef;
+    --verde:#4e7a52;
+    --verde-escuro:#3a5c3d;
+    --creme:#fdf8f4;
+    --areia:#f6ede4;
+    --carvao:#2e2a2c;
+    --dourado:#c9a24b;
+    --sombra:0 10px 30px rgba(0,0,0,.08);
+    --sombra-forte:0 16px 44px rgba(0,0,0,.16);
+    --radius:18px;
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    color:var(--carvao);
+    background:var(--creme);
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Georgia','Times New Roman',serif;font-weight:600;line-height:1.2}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--rosa);color:#fff;border:none;cursor:pointer;
+    padding:13px 24px;border-radius:999px;font-size:1rem;font-weight:600;
+    transition:transform .15s ease,background .2s ease;
+  }
+  .btn:hover{background:var(--rosa-escuro);transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--rosa-escuro);border:2px solid var(--rosa)}
+  .btn.ghost:hover{background:var(--rosa);color:#fff}
+  .btn.wpp{background:#25d366}
+  .btn.wpp:hover{background:#1da851}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(253,248,244,.95);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(0,0,0,.06);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo .mark{
+    width:46px;height:46px;border-radius:50%;flex-shrink:0;
+    background:radial-gradient(circle at 30% 30%,var(--rosa),var(--rosa-escuro));
+    display:grid;place-items:center;color:#fff;box-shadow:var(--sombra);
+  }
+  .logo .mark svg{width:26px;height:26px}
+  .logo b{font-family:Georgia,serif;font-size:1.15rem;display:block;line-height:1.1}
+  .logo span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--verde)}
+  nav.links{display:flex;gap:26px;align-items:center}
+  nav.links a{font-weight:600;font-size:.95rem;position:relative}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--rosa);transition:width .2s}
+  nav.links a:hover::after{width:100%}
+  .cart-btn{position:relative;background:var(--areia);border:none;cursor:pointer;width:46px;height:46px;border-radius:50%;display:grid;place-items:center}
+  .cart-btn svg{width:22px;height:22px;color:var(--carvao)}
+  .cart-count{
+    position:absolute;top:-4px;right:-4px;background:var(--rosa);color:#fff;
+    font-size:.7rem;font-weight:700;min-width:20px;height:20px;border-radius:999px;
+    display:grid;place-items:center;padding:0 5px;
+  }
+  .hamb{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+  .hamb span{width:24px;height:2px;background:var(--carvao);display:block}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:84vh;display:flex;align-items:center;
+    background:linear-gradient(120deg,rgba(252,232,239,.96) 0%,rgba(246,237,228,.82) 55%,rgba(255,255,255,.3) 100%),
+      url('img/p4.jpg');
+    background-size:cover;background-position:center;
+  }
+  .hero .wrap{width:100%}
+  .hero-box{max-width:560px}
+  .hero .tag{display:inline-block;background:#fff;color:var(--rosa-escuro);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:999px;box-shadow:var(--sombra);margin-bottom:20px}
+  .hero h1{font-size:clamp(2.1rem,5vw,3.6rem);margin-bottom:18px;color:var(--carvao)}
+  .hero h1 em{color:var(--rosa-escuro);font-style:italic}
+  .hero p{font-size:1.15rem;margin-bottom:28px;max-width:460px;color:#4a4446}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* FAIXA DE SELOS */
+  .selos{background:var(--verde-escuro);color:#fff}
+  .selos .wrap{display:flex;flex-wrap:wrap;justify-content:space-around;gap:18px;padding:22px 20px;text-align:center}
+  .selo{display:flex;align-items:center;gap:10px;font-size:.95rem;font-weight:600}
+  .selo svg{width:26px;height:26px;color:#f4c9d9;flex-shrink:0}
+
+  /* SECTIONS */
+  section{padding:76px 0}
+  .sec-head{text-align:center;max-width:620px;margin:0 auto 46px}
+  .sec-head .kicker{color:var(--rosa);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.82rem}
+  .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin:10px 0}
+  .sec-head p{color:#6b6366}
+
+  /* FILTROS */
+  .filtros{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:38px}
+  .filtros button{
+    background:#fff;border:2px solid var(--areia);color:var(--carvao);
+    padding:9px 20px;border-radius:999px;cursor:pointer;font-weight:600;font-size:.9rem;
+    transition:all .18s ease;
+  }
+  .filtros button.active,.filtros button:hover{background:var(--rosa);border-color:var(--rosa);color:#fff}
+
+  /* GRID PRODUTOS */
+  .produtos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:26px}
+  .card{
+    background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--sombra);
+    display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:var(--sombra-forte)}
+  .card .thumb{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--areia)}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+  .card:hover .thumb img{transform:scale(1.06)}
+  .card .badge{position:absolute;top:12px;left:12px;background:var(--rosa);color:#fff;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em}
+  .card .body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+  .card .cat{font-size:.74rem;color:var(--verde);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .card h3{font-size:1.15rem;margin:5px 0 6px}
+  .card .desc{font-size:.88rem;color:#6b6366;margin-bottom:14px;flex:1}
+  .card .foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .card .preco{font-size:1.3rem;font-weight:700;color:var(--rosa-escuro);font-family:Georgia,serif}
+  .card .preco small{font-size:.75rem;color:#9a9196;font-weight:400}
+  .add{background:var(--verde);color:#fff;border:none;cursor:pointer;padding:10px 16px;border-radius:999px;font-weight:600;font-size:.85rem;transition:background .2s,transform .15s;white-space:nowrap}
+  .add:hover{background:var(--verde-escuro);transform:translateY(-2px)}
+
+  /* SOBRE */
+  .sobre{background:var(--areia)}
+  .sobre-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+  .sobre-img{border-radius:var(--radius);overflow:hidden;box-shadow:var(--sombra-forte);aspect-ratio:4/3}
+  .sobre-img img{width:100%;height:100%;object-fit:cover}
+  .sobre-txt h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:18px}
+  .sobre-txt p{color:#5b5457;margin-bottom:16px}
+  .sobre-stats{display:flex;gap:34px;margin-top:24px}
+  .sobre-stats .n{font-size:2rem;font-weight:700;color:var(--rosa-escuro);font-family:Georgia,serif}
+  .sobre-stats .l{font-size:.85rem;color:#6b6366}
+
+  /* UNIDADES */
+  .unidades-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .unidade{background:#fff;border-radius:var(--radius);padding:30px;box-shadow:var(--sombra);border-top:5px solid var(--rosa)}
+  .unidade h3{font-size:1.35rem;margin-bottom:6px;color:var(--rosa-escuro)}
+  .unidade .cidade{color:var(--verde);font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+  .unidade .linha{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:.95rem;color:#5b5457}
+  .unidade .linha svg{width:20px;height:20px;color:var(--rosa);flex-shrink:0;margin-top:3px}
+
+  /* CTA FINAL */
+  .cta-final{background:linear-gradient(120deg,var(--rosa),var(--rosa-escuro));color:#fff;text-align:center}
+  .cta-final h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:14px}
+  .cta-final p{font-size:1.1rem;opacity:.95;margin-bottom:28px;max-width:540px;margin-left:auto;margin-right:auto}
+  .cta-final .btn{background:#fff;color:var(--rosa-escuro)}
+  .cta-final .btn:hover{background:var(--carvao);color:#fff}
+
+  /* FOOTER */
+  footer{background:var(--carvao);color:#d9d2d5;padding:54px 0 24px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:34px}
+  footer h4{color:#fff;font-family:Georgia,serif;margin-bottom:16px;font-size:1.1rem}
+  footer a{color:#d9d2d5;font-size:.92rem;display:block;margin-bottom:9px;transition:color .2s}
+  footer a:hover{color:var(--rosa)}
+  footer .logo b{color:#fff}
+  .foot-sobre p{font-size:.92rem;color:#a89fa3;margin-top:14px;max-width:320px}
+  .foot-social{display:flex;gap:12px;margin-top:16px}
+  .foot-social a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;margin:0}
+  .foot-social a:hover{background:var(--rosa)}
+  .foot-social svg{width:20px;height:20px;color:#fff}
+  .foot-bot{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;text-align:center;font-size:.82rem;color:#8a8286}
+
+  /* CARRINHO DRAWER */
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:.25s;z-index:200}
+  .overlay.open{opacity:1;visibility:visible}
+  .drawer{
+    position:fixed;top:0;right:0;height:100%;width:400px;max-width:92vw;background:var(--creme);
+    z-index:201;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.2);
+  }
+  .drawer.open{transform:translateX(0)}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:22px;border-bottom:1px solid rgba(0,0,0,.08)}
+  .drawer-head h3{font-size:1.25rem}
+  .drawer-head .close{background:none;border:none;cursor:pointer;font-size:1.6rem;line-height:1;color:#777}
+  .drawer-body{flex:1;overflow-y:auto;padding:16px 22px}
+  .cart-empty{text-align:center;color:#9a9196;padding:50px 10px}
+  .cart-empty svg{width:60px;height:60px;color:#d8cfca;margin:0 auto 14px}
+  .cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+  .cart-item img{width:64px;height:76px;object-fit:cover;border-radius:10px;flex-shrink:0}
+  .cart-item .ci-info{flex:1;min-width:0}
+  .cart-item h4{font-size:.95rem;font-family:'Segoe UI',sans-serif;font-weight:600;margin-bottom:3px}
+  .cart-item .ci-preco{color:var(--rosa-escuro);font-weight:700;font-size:.95rem}
+  .qty{display:inline-flex;align-items:center;border:1px solid var(--areia);border-radius:999px;margin-top:8px;overflow:hidden}
+  .qty button{width:28px;height:28px;border:none;background:var(--areia);cursor:pointer;font-size:1rem;font-weight:700;color:var(--carvao)}
+  .qty button:hover{background:var(--rosa);color:#fff}
+  .qty span{min-width:30px;text-align:center;font-weight:600;font-size:.9rem}
+  .ci-remove{background:none;border:none;color:#bbb;cursor:pointer;font-size:.8rem;margin-top:8px;margin-left:10px;text-decoration:underline}
+  .ci-remove:hover{color:var(--rosa-escuro)}
+  .drawer-foot{padding:20px 22px;border-top:1px solid rgba(0,0,0,.08);background:#fff}
+  .drawer-foot .total{display:flex;justify-content:space-between;font-size:1.2rem;font-weight:700;margin-bottom:14px}
+  .drawer-foot .total .v{color:var(--rosa-escuro);font-family:Georgia,serif}
+  .drawer-foot .btn{width:100%;justify-content:center}
+  .drawer-foot .hint{font-size:.78rem;color:#9a9196;text-align:center;margin-top:10px}
+
+  /* TOAST */
+  .toast{
+    position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);
+    background:var(--verde-escuro);color:#fff;padding:14px 24px;border-radius:999px;font-weight:600;
+    box-shadow:var(--sombra-forte);z-index:300;transition:transform .3s ease;font-size:.92rem;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  /* RESPONSIVE */
+  @media(max-width:860px){
+    nav.links{position:fixed;top:74px;right:0;width:260px;max-width:80vw;height:calc(100vh - 74px);background:var(--creme);flex-direction:column;align-items:flex-start;padding:26px;gap:20px;transform:translateX(100%);transition:transform .3s ease;box-shadow:-10px 0 40px rgba(0,0,0,.15)}
+    nav.links.open{transform:translateX(0)}
+    .hamb{display:flex}
+    .sobre-grid{grid-template-columns:1fr;gap:30px}
+    .unidades-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr;gap:28px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="logo">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.3 0 2.4 1 2.6 2.3 1-.8 2.5-.7 3.4.3.9.9 1 2.4.2 3.4 1.3.2 2.3 1.3 2.3 2.7s-1 2.5-2.3 2.7c.8 1 .7 2.5-.2 3.4-.9.9-2.4 1-3.4.2-.2 1.3-1.3 2.3-2.6 2.3s-2.4-1-2.6-2.3c-1 .8-2.5.7-3.4-.2-.9-.9-1-2.4-.2-3.4C4.9 13.9 3.9 12.8 3.9 11.4s1-2.5 2.3-2.7c-.8-1-.7-2.5.2-3.4.9-.9 2.4-1 3.4-.3C9.6 3 10.7 2 12 2z"/><circle cx="12" cy="11.4" r="2.6" fill="#c24b76"/></svg>
+      </span>
+      <span>
+        <b>São Matheus</b>
+        <span>Floricultura</span>
+      </span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#unidades">Unidades</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px">
+      <button class="cart-btn" id="openCart" aria-label="Abrir carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+      <button class="hamb" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio" style="padding:0">
+  <div class="wrap">
+    <div class="hero-box">
+      <span class="tag">🌸 Bragança Paulista · Extrema</span>
+      <h1>Flores que dizem o que <em>as palavras não alcançam</em></h1>
+      <p>Arranjos, buquês e peças especiais montados na hora, com flores fresquinhas. Escolha, adicione ao carrinho e finalize pelo WhatsApp.</p>
+      <div class="hero-cta">
+        <a href="#produtos" class="btn">Ver produtos</a>
+        <a href="#contato" class="btn ghost">Falar conosco</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SELOS -->
+<div class="selos">
+  <div class="wrap">
+    <div class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg> Flores fresquinhas todo dia</div>
+    <div class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Entrega rápida na região</div>
+    <div class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg> Montados com carinho</div>
+    <div class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H4z"/><path d="M4 20h16"/></svg> Pedido fácil pelo WhatsApp</div>
+  </div>
+</div>
+
+<!-- PRODUTOS -->
+<section id="produtos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Nossa Loja</span>
+      <h2>Escolha o seu presente</h2>
+      <p>Cada arranjo é montado com flores selecionadas do dia. Clique para adicionar ao carrinho.</p>
+    </div>
+    <div class="filtros" id="filtros">
+      <button class="active" data-cat="todos">Todos</button>
+      <button data-cat="arranjos">Arranjos</button>
+      <button data-cat="buques">Buquês</button>
+      <button data-cat="eventos">Eventos</button>
+      <button data-cat="flores">Flores avulsas</button>
+    </div>
+    <div class="produtos" id="gridProdutos"></div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="wrap sobre-grid">
+    <div class="sobre-img">
+      <img src="img/p3.jpg" alt="Grande arranjo floral de mesa montado pela Floricultura São Matheus" loading="lazy" />
+    </div>
+    <div class="sobre-txt">
+      <span class="kicker" style="color:var(--rosa);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.82rem">Quem Somos</span>
+      <h2>A Floricultura São Matheus</h2>
+      <p>Trabalhamos com o que a natureza tem de mais bonito para transformar momentos em memórias. Da flor avulsa ao grande arranjo de evento, cada peça é montada à mão, com atenção aos detalhes e flores sempre fresquinhas.</p>
+      <p>Atendemos Bragança Paulista/SP e Extrema/MG, com entrega rápida na região. Aniversário, homenagem, data religiosa, decoração de festa ou só pra alegrar o dia — a gente cuida de tudo.</p>
+      <div class="sobre-stats">
+        <div><div class="n">2</div><div class="l">Unidades</div></div>
+        <div><div class="n">100%</div><div class="l">Flores frescas</div></div>
+        <div><div class="n">❤</div><div class="l">Feito à mão</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDADES -->
+<section id="unidades">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Onde Estamos</span>
+      <h2>Nossas Unidades</h2>
+      <p>Passe numa das lojas ou peça a entrega pelo WhatsApp.</p>
+    </div>
+    <div class="unidades-grid">
+      <div class="unidade">
+        <h3>Unidade 01</h3>
+        <div class="cidade">Bragança Paulista · SP</div>
+        <div class="linha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> R. José Domingues, 613 — Centro, Bragança Paulista/SP, 12900-260</div>
+        <div class="linha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg> (11) 94702-4334</div>
+        <a href="https://maps.google.com/?q=R.+Jos%C3%A9+Domingues,+613+-+Centro,+Bragan%C3%A7a+Paulista+-+SP,+12900-260" target="_blank" rel="noopener" class="btn ghost" style="margin-top:8px;font-size:.88rem;padding:9px 18px">Ver no mapa</a>
+      </div>
+      <div class="unidade">
+        <h3>Unidade 02</h3>
+        <div class="cidade">Extrema · MG</div>
+        <div class="linha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> R. Nenê, 144/B — Centro, Extrema/MG, 37640-000</div>
+        <div class="linha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg> (11) 94702-4334</div>
+        <a href="https://maps.google.com/?q=R.+Nen%C3%AA,+144%2FB+-+Centro,+Extrema+-+MG,+37640-000" target="_blank" rel="noopener" class="btn ghost" style="margin-top:8px;font-size:.88rem;padding:9px 18px">Ver no mapa</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contato">
+  <div class="wrap">
+    <h2>Pronto para encomendar?</h2>
+    <p>Monte seu pedido no carrinho ou chame a gente direto no WhatsApp. Respondemos rapidinho e ajudamos você a escolher.</p>
+    <a href="https://wa.me/5511947024334?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido%20na%20Floricultura%20S%C3%A3o%20Matheus." target="_blank" rel="noopener" class="btn wpp" style="background:#fff;color:#1da851">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M.1 24l1.7-6.2A11.9 11.9 0 1 1 12 24a11.9 11.9 0 0 1-5.7-1.4L.1 24ZM6.6 20l.4.2a9.9 9.9 0 1 0-3.4-3.4l.2.4-1 3.7 3.8-.9ZM17.5 14.3c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a8.1 8.1 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2c-.2-.3 0-.4.1-.6l.4-.4.3-.5v-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A3 3 0 0 0 7 9c0 1.8 1.3 3.5 1.5 3.7s2.5 3.9 6.1 5.4c2.2.9 2.6.7 3.1.7s1.5-.6 1.7-1.2.2-1.1.2-1.2l-.4-.2Z"/></svg>
+      Chamar no WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-sobre">
+        <div class="logo">
+          <span class="mark" aria-hidden="true" style="width:42px;height:42px">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.3 0 2.4 1 2.6 2.3 1-.8 2.5-.7 3.4.3.9.9 1 2.4.2 3.4 1.3.2 2.3 1.3 2.3 2.7s-1 2.5-2.3 2.7c.8 1 .7 2.5-.2 3.4-.9.9-2.4 1-3.4.2-.2 1.3-1.3 2.3-2.6 2.3s-2.4-1-2.6-2.3c-1 .8-2.5.7-3.4-.2-.9-.9-1-2.4-.2-3.4C4.9 13.9 3.9 12.8 3.9 11.4s1-2.5 2.3-2.7c-.8-1-.7-2.5.2-3.4.9-.9 2.4-1 3.4-.3C9.6 3 10.7 2 12 2z"/><circle cx="12" cy="11.4" r="2.6" fill="#c24b76"/></svg>
+          </span>
+          <span><b style="font-family:Georgia,serif;font-size:1.15rem">São Matheus</b><span style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#f4c9d9">Floricultura</span></span>
+        </div>
+        <p>Flores, arranjos e buquês montados com carinho em Bragança Paulista/SP e Extrema/MG.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://wa.me/5511947024334" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.1 24l1.7-6.2A11.9 11.9 0 1 1 12 24a11.9 11.9 0 0 1-5.7-1.4L.1 24ZM6.6 20l.4.2a9.9 9.9 0 1 0-3.4-3.4l.2.4-1 3.7 3.8-.9Z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">Sobre nós</a>
+        <a href="#unidades">Unidades</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="https://wa.me/5511947024334" target="_blank" rel="noopener">WhatsApp: (11) 94702-4334</a>
+        <a href="#unidades">Bragança Paulista/SP</a>
+        <a href="#unidades">Extrema/MG</a>
+      </div>
+    </div>
+    <div class="foot-bot">© <span id="ano"></span> Floricultura São Matheus · Todos os direitos reservados · Feito com 🌸</div>
+    <div class="foot-bot" style="border-top:none;padding-top:6px;font-size:.72rem;color:#6f686c">
+      Imagens ilustrativas de licença livre via <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener" style="display:inline;color:#8a8286;text-decoration:underline">Wikimedia Commons</a>:
+      girassóis © Krzysztof Golik (CC BY-SA 4.0) ·
+      arranjo de mesa © Shixart1985 (CC BY 2.0) ·
+      arranjo misto e centro de mesa © Creaflor (CC BY-SA 4.0) ·
+      alstroemérias © JJ Harrison (CC BY-SA 3.0).
+    </div>
+  </div>
+</footer>
+
+<!-- OVERLAY + DRAWER CARRINHO -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Carrinho de compras">
+  <div class="drawer-head">
+    <h3>Seu carrinho</h3>
+    <button class="close" id="closeCart" aria-label="Fechar">&times;</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot">
+    <div class="total"><span>Total</span><span class="v" id="cartTotal">R$ 0,00</span></div>
+    <button class="btn wpp" id="checkout" style="width:100%;justify-content:center">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M.1 24l1.7-6.2A11.9 11.9 0 1 1 12 24a11.9 11.9 0 0 1-5.7-1.4L.1 24ZM6.6 20l.4.2a9.9 9.9 0 1 0-3.4-3.4l.2.4-1 3.7 3.8-.9ZM17.5 14.3c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a8.1 8.1 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2c-.2-.3 0-.4.1-.6l.4-.4.3-.5v-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A3 3 0 0 0 7 9c0 1.8 1.3 3.5 1.5 3.7s2.5 3.9 6.1 5.4c2.2.9 2.6.7 3.1.7s1.5-.6 1.7-1.2.2-1.1.2-1.2l-.4-.2Z"/></svg>
+      Finalizar pelo WhatsApp
+    </button>
+    <div class="hint">Você revisa o pedido antes de enviar. Combinamos entrega e pagamento pelo WhatsApp.</div>
+  </div>
+</aside>
+
+<div class="toast" id="toast">Adicionado ao carrinho! 🌸</div>
+
+<script>
+const PRODUTOS = [
+  {id:'p1', nome:'Box Nossa Senhora', cat:'arranjos', catLabel:'Arranjo', preco:189.90, badge:'Destaque',
+   img:'img/p1.jpg', desc:'Arranjo devocional em caixa com girassóis, rosas, margaridas e imagem de Nossa Senhora. Perfeito para homenagens e datas religiosas.'},
+  {id:'p3', nome:'Arranjo de Mesa Especial', cat:'eventos', catLabel:'Eventos', preco:329.90, badge:'Eventos',
+   img:'img/mesa.jpg', desc:'Arranjo de mesa com rosas, lisianthus e folhagens, montado à mão. Ideal para decoração de mesas, jantares e cerimônias.'},
+  {id:'p2', nome:'Buquê de Cravos Vermelhos', cat:'buques', catLabel:'Buquê', preco:89.90,
+   img:'img/p2.jpg', desc:'Buquê clássico de cravos vermelhos, símbolo de amor e admiração. Embalagem especial para presente.'},
+  {id:'p4', nome:'Flores Avulsas do Dia', cat:'flores', catLabel:'Flores', preco:34.90, badge:'Fresquinho',
+   img:'img/p4.jpg', desc:'Maços de flores frescas do dia — girassóis, alstroemérias coloridas e mais. Monte você mesmo seu presente.'},
+  {id:'p5', nome:'Buquê de Girassóis', cat:'buques', catLabel:'Buquê', preco:109.90,
+   img:'img/girassois.jpg', desc:'Buquê alegre de girassóis que leva energia e bom humor pra qualquer ambiente. Flores fresquinhas selecionadas.'},
+  {id:'p6', nome:'Arranjo Misto Colorido', cat:'arranjos', catLabel:'Arranjo', preco:149.90,
+   img:'img/misto.jpg', desc:'Arranjo artístico com rosas e flores vermelhas da estação, montado à mão. Alegra a casa ou vira um presente marcante.'},
+  {id:'p7', nome:'Centro de Mesa para Festa', cat:'eventos', catLabel:'Eventos', preco:259.90,
+   img:'img/centro.jpg', desc:'Peça exclusiva para decorar mesas de eventos e celebrações, com rosas, gérberas e verônicas. Montamos sob medida conforme o tema.'},
+  {id:'p8', nome:'Maço de Alstroemérias', cat:'flores', catLabel:'Flores', preco:29.90,
+   img:'img/alstroemeria.jpg', desc:'Maço de alstroemérias coloridas, duradouras e cheias de vida. Ótimas sozinhas ou pra compor arranjos.'},
+];
+
+const BRL = n => n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const WPP = '5511947024334';
+let cart = JSON.parse(localStorage.getItem('fsm_cart') || '{}');
+
+const grid = document.getElementById('gridProdutos');
+const drawerBody = document.getElementById('drawerBody');
+
+function renderProdutos(cat='todos'){
+  grid.innerHTML = PRODUTOS
+    .filter(p => cat==='todos' || p.cat===cat)
+    .map(p => `
+      <article class="card">
+        <div class="thumb">
+          ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
+          <img src="${p.img}" alt="${p.nome}" loading="lazy" />
+        </div>
+        <div class="body">
+          <span class="cat">${p.catLabel}</span>
+          <h3>${p.nome}</h3>
+          <p class="desc">${p.desc}</p>
+          <div class="foot">
+            <span class="preco">${BRL(p.preco)} <small>a partir de</small></span>
+            <button class="add" data-id="${p.id}">+ Carrinho</button>
+          </div>
+        </div>
+      </article>`).join('');
+}
+
+function saveCart(){ localStorage.setItem('fsm_cart', JSON.stringify(cart)); }
+
+function addToCart(id){
+  cart[id] = (cart[id]||0) + 1;
+  saveCart(); renderCart(); updateCount(); showToast();
+}
+
+function changeQty(id, delta){
+  cart[id] = (cart[id]||0) + delta;
+  if(cart[id] <= 0) delete cart[id];
+  saveCart(); renderCart(); updateCount();
+}
+
+function removeItem(id){ delete cart[id]; saveCart(); renderCart(); updateCount(); }
+
+function cartTotal(){
+  return Object.entries(cart).reduce((s,[id,q])=>{
+    const p = PRODUTOS.find(x=>x.id===id); return s + (p ? p.preco*q : 0);
+  },0);
+}
+
+function updateCount(){
+  const n = Object.values(cart).reduce((a,b)=>a+b,0);
+  const el = document.getElementById('cartCount');
+  el.textContent = n; el.style.display = n>0 ? 'grid':'none';
+}
+
+function renderCart(){
+  const ids = Object.keys(cart);
+  if(ids.length===0){
+    drawerBody.innerHTML = `<div class="cart-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <p>Seu carrinho está vazio.<br>Que tal escolher umas flores? 🌷</p></div>`;
+  } else {
+    drawerBody.innerHTML = ids.map(id=>{
+      const p = PRODUTOS.find(x=>x.id===id); const q = cart[id];
+      return `<div class="cart-item">
+        <img src="${p.img}" alt="${p.nome}">
+        <div class="ci-info">
+          <h4>${p.nome}</h4>
+          <div class="ci-preco">${BRL(p.preco)}</div>
+          <div class="qty">
+            <button data-minus="${id}">−</button><span>${q}</span><button data-plus="${id}">+</button>
+          </div>
+          <button class="ci-remove" data-remove="${id}">remover</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  document.getElementById('cartTotal').textContent = BRL(cartTotal());
+}
+
+function showToast(){
+  const t = document.getElementById('toast');
+  t.classList.add('show'); clearTimeout(window._tt);
+  window._tt = setTimeout(()=>t.classList.remove('show'),1800);
+}
+
+function openDrawer(){ document.getElementById('drawer').classList.add('open'); document.getElementById('overlay').classList.add('open'); }
+function closeDrawer(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('overlay').classList.remove('open'); }
+
+function checkout(){
+  const ids = Object.keys(cart);
+  if(ids.length===0){ showToast(); document.getElementById('toast').textContent='Seu carrinho está vazio 🌷'; return; }
+  let msg = '🌸 *Pedido — Floricultura São Matheus*%0A%0A';
+  ids.forEach(id=>{
+    const p = PRODUTOS.find(x=>x.id===id); const q = cart[id];
+    msg += `• ${q}x ${p.nome} — ${BRL(p.preco*q)}%0A`;
+  });
+  msg += `%0A*Total: ${BRL(cartTotal())}*%0A%0AGostaria de combinar entrega e pagamento. 🙂`;
+  window.open(`https://wa.me/${WPP}?text=${msg}`,'_blank');
+}
+
+// EVENTS
+grid.addEventListener('click', e=>{ const b=e.target.closest('.add'); if(b) addToCart(b.dataset.id); });
+drawerBody.addEventListener('click', e=>{
+  const t=e.target;
+  if(t.dataset.plus) changeQty(t.dataset.plus, 1);
+  if(t.dataset.minus) changeQty(t.dataset.minus, -1);
+  if(t.dataset.remove) removeItem(t.dataset.remove);
+});
+document.getElementById('filtros').addEventListener('click', e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  document.querySelectorAll('#filtros button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); renderProdutos(b.dataset.cat);
+});
+document.getElementById('openCart').addEventListener('click', openDrawer);
+document.getElementById('closeCart').addEventListener('click', closeDrawer);
+document.getElementById('overlay').addEventListener('click', closeDrawer);
+document.getElementById('checkout').addEventListener('click', checkout);
+document.getElementById('hamb').addEventListener('click', ()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+// INIT
+renderProdutos(); renderCart(); updateCount();
+</script>
+</body>
+</html>
